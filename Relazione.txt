@@ -1,0 +1,40 @@
+-----------------------------------------------------------------------------------------------------------------------
+(Scenario 1)
+
+-Descrizione dell'architettura: Due reti lan locali con architettura a stella, composte da 3 host client per network,
+collegate fra loro da un router, nodo, che funge da interconnesione fra i due network.
+
+
+-Analisi dello scenario:
+Per verificare l'architettura dello scenario 1 si può eseguire il comando ping da un host collegato ad un network
+all'altro.Eseguendo il comando ping 192.168.200.2 dall'host con IP 192.168.100.1 si nota che il primo pacchetto 
+non arriva a destinazione ma poi i tre pacchetti inviati arrivano alla macchina di destinazione.
+In questo i livelli dello standard iso/osi sono: fisico, collegamento e rete. A livello fisico abbiamo gli standard e 
+i protocolli per i cavi di rete che gestiscono la comunicazione. A livello di collegamento i device (router e switch) 
+che interconnettono le macchine fra di loro che fanno in modo di aggiornare le loro mac table in modo da riconoscere
+l'indirizzo ip al mac.Per ultimo abbiamo il livello di rete a cui fa parte il protocollo IP o ICMP utilizzato per
+inviare i pacchetti dati da un host all'altro.Il fallimento del primo pacchetto al corretto destinatario avviene perchè
+al livello di collegamento il router non avendo conoscenza della topologia del network non riesce ad associare il 
+mac address all ip, ma poi aggiorna le sue tabelle e l'operazione riesce.
+-----------------------------------------------------------------------------------------------------------------------
+(Scenario 2)
+
+-Descrizione dell'architettura:Due reti lan locali con architettura a stella, composte da 3 host client per il network
+192.168.100.0/24 e da due host client e un server host per il network 192.168.200.0.
+Collegate fra loro da un router, nodo, che funge da interconnesione fra i due network.
+
+-Analisi dello scenario:
+Per verificare lo scenario 2 e verificare la connessione fra il client host e il server host, dal web browser della 
+macchina con IP:192.168.100.2 si inserisce l'IP del server host (192.168.200.2) per richiedere la connessione e il corretto
+invio della pagina html.
+In questo scenario i livelli coinvolti dello standard ISO/OSI sono:fisico, collegamento, rete, trasporto e applicazione.
+il livello appicazione contiene in se presentazione e sessione.
+Per far avvenire la corretta fruizione della pagina html dal web browser, i protocolli al livello trasporto e a livello applicativo
+sono :TCP/IP e Http.
+Per avviare la comunicazione la connessione e la il corretto invio TCP/IP inizializza una connesione con il server
+inviando 1 pacchetto di syn e un altro di ack al ritorno della risposta del server con syn/ack.Stabilendo le port-socket di comunicazione.
+Http invia e inizializza le connessioni per ogni contenuto nella pagina Html.
+
+
+
+------------------------------------------------------------------------------------------------------------------------
